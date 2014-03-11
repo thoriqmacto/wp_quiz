@@ -8,8 +8,9 @@
 
 <p>Enter the Answers below</p>
 <div id="answerInputs"></div>
-<div id="answerSelect">
+<div>
     <span>Correct Answer:</span>
+	<select name='correct_answer' id="answerSelect"></select>
 </div>
 <p>
     <input name="save" type="submit" class="button button-primary button-small" value="Save all">

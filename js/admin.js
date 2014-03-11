@@ -1,7 +1,7 @@
 (function($) {
  
-	var Quiz = { Views:{} };
-    var wpq  = window.wpQuiz;
+	var Quiz = { Views:{} },    
+		wpq  = window.wpQuiz;
  	
 	Quiz.Model = Backbone.Model.extend({
         defaults : {
@@ -102,7 +102,8 @@
 
         // Watch for changes to each model (that happen in the input fields and re-render when there is a change
         initialize:function () {
-            this.model.on( 'change:answer', this.render, this );
+            // this.model.on( 'change:answer', this.render, this );
+			this.model.on( 'change', this.render, this );
         },
         render:function () {
             this.$el.text( this.model.get( 'answer' ) );
@@ -110,8 +111,8 @@
         }
     });
 	
-	var answers = new Quiz.Collection( wpq.answers );
-    var selectElem = new Quiz.Views.Select({ collection:answers, el:wpq.answerSelect });
-    var inputs = new Quiz.Views.Inputs({ collection:answers, el:wpq.answerInput });
+	var answers = new Quiz.Collection( wpq.answers ),
+ 		selectElem = new Quiz.Views.Select({ collection:answers, el:wpq.answerSelect }),
+		inputs = new Quiz.Views.Inputs({ collection:answers, el:wpq.answerInput });
 	
 }(jQuery));
