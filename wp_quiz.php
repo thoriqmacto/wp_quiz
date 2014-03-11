@@ -1,11 +1,13 @@
 <?php 
 /*
-Plugin Name: WP Quiz
+
+Plugin Name: WPTuts Quiz (backbone)
 Plugin URI: http://wp.tutsplus.com/author/shaneosbourne/
 Description: An example of using Backbone within a plugin.
 Author: Shane Osbourne
 Version: 0.1
 Author URI: http://wp.tutsplus.com/author/shaneosbourne/
+
 */
 
 /** wp_quiz.php **/
@@ -17,14 +19,13 @@ function call_wp_quiz() {
 }
  
 // Only when the current user is an Admin
-if ( is_admin )
+if ( is_admin ){
     add_action( 'init', 'call_wp_quiz' );
+}
  
 // Helper function
-if ( ! function_exists( 'pp' ) ) {
+if ( !function_exists( 'pp' ) ) {
     function pp() {
         return plugin_dir_url( __FILE__ );
     }
 }
-
-?>
